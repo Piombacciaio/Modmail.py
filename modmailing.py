@@ -27,8 +27,8 @@ async def on_message(message):
             await bot.get_guild(INSERT_GUILD_ID).get_channel(INSERT_CHANNEL_ID).send(embed=em)
         await bot.process_commands(message)
 
-@bot.command(usage=f"{prex}report [mention]", description="reply to a modmail Dm", brief="main")
-async def report(ctx, member:discord.Member, *, msg):
+@bot.command(usage=f"{prex}reply [mention]", description="reply to a modmail Dm", brief="main")
+async def reply(ctx, member:discord.Member, *, msg):
     await member.send(msg)
 
 @bot.command(usage=f"{prex}help", description="this message", brief="main")
