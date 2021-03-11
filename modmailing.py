@@ -23,7 +23,7 @@ async def on_message(message):
     if message.author != message.author.bot:
         if not message.guild:
             em = discord.Embed(color=0xAD1457)
-            em.add_field(name="**Modmailing**", value=f"User: {message.author.mention} ({message.author})\nUser ID: {message.author.id}\nneeds help with: {message.content}\n\nto reply: -report {message.author.mention} [message]")
+            em.add_field(name="**Modmailing**", value=f"User: {message.author.mention} ({message.author})\nUser ID: {message.author.id}\nneeds help with: {message.content}\n\nto reply: {prex}report {message.author.mention} [message]")
             await bot.get_guild(INSERT_GUILD_ID).get_channel(INSERT_CHANNEL_ID).send(embed=em)
         await bot.process_commands(message)
 
@@ -39,8 +39,10 @@ async def help(ctx):
         if command.brief == "main":
          commandinfo += f'{command.usage} | {command.description}\n'
     embed = discord.Embed(title="Modmail", description=f'\n{commandinfo}', color=0xAD1457)
-    embed.set_thumbnail(url="")
-    embed.set_footer(text="")
+    embed.set_thumbnail(url="INSERT_IMAGE_URL")
+    embed.set_image(url="INSERT_IMAGE_URL")
+    embed.set_footer(text="INSERT_FOOTER_TEXT", icon_url="INSERT_IMAGE_URL")
+    embed.set_author(name="INSERT_AUTHOR_NAME", icon_url="INSERT_IMAGE_URL")
     await ctx.send(embed=embed)
 
 bot.run(token)
